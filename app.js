@@ -1,15 +1,17 @@
 let cells = document.querySelectorAll('.cell');
-let tops = document.querySelectorAll('.top');
-let mids = document.querySelectorAll('.middle');
-let btms = document.querySelectorAll('.bottoms');
-let lfts = document.querySelectorAll('.left');
-let rts = document.querySelectorAll('.right')
-let cntr = document.querySelectorAll('.center');
+let tL = document.querySelectorAll('.top , .left').textContent;
+let tC = document.querySelectorAll('.top , .center').textContent;
+let tR = document.querySelectorAll('.top , .right').textContent;
+let mL = document.querySelectorAll('.middle , .left').textContent;
+let mC = document.querySelectorAll('.middle , .center').textContent;
+let mR = document.querySelectorAll('.middle , .right').textContent;
+let bL = document.querySelectorAll('.bottom , .left').textContent;
+let bC = document.querySelectorAll('.bottom , .center').textContent;
+let bR = document.querySelectorAll('.bottom , .right').textContent;
 let result = document.querySelector('.result');
 
 cells.forEach(function(cell){
     cell.addEventListener("click",cellClicked);
-    cell.addEventListener("click",checkTop);
 });
 
 let ptrn = ['X','O','X','O','X','O','X','O','X'];
@@ -25,6 +27,7 @@ function clearCells() {
 function cellClicked(e){
     e.target.textContent = ptrn[i];
     i++;
+    
     if (i == 9) {
         i = 0;
         clearCells();
@@ -47,7 +50,7 @@ function noWin() {
 
 //top row victory
 function checkTop() {
-    switch (tops) {
+    switch (tL && tC && tR) {
         case 'X':
             xWin();
             break;
@@ -59,8 +62,8 @@ function checkTop() {
     }
 }
 
-function checkMiddle() {
-    switch (mids) {
+/* function checkMiddle() {
+    switch () {
         case 'X':
             xWin();
             break;
@@ -70,4 +73,4 @@ function checkMiddle() {
         default:
             result.textContent = '';
     }
-}
+} */

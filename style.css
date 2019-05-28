@@ -37,3 +37,11 @@
     font-weight: bold;
     font-size: 90px;
 }
+
+.result {
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
