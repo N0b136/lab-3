@@ -30,10 +30,15 @@ function clearCells() {
 
 function cellClicked(e){
     e.target.textContent = ptrn[i];
-    i++;
-    if (i == 9) {
+    i++; 
+    if (i == 9 || result.textContent == 'X Wins!' || result.textContent == 'O Wins!') {
         i = 0;
         clearCells();
+    } else if (i === 8 && result.textContent !== 'X Wins!' && result.textContent !== 'O Wins!' ){
+        noWin();
+    } else if (i === 1 && result.textContent == 'Cleared!') {
+        result.textContent = '';
+        console.log('Should be working...');
     };
 };
 
@@ -53,128 +58,74 @@ function noWin() {
 
 //top row victory
 function checkTop() {
-    switch (tL.textContent && tC.textContent && tR.textContent) {
-        case 'X':
-            xWin();
-            console.log('won top');
-            break;
-        case 'O':
-            oWin();
-            console.log('won top');
-            break;
-    }
+    if (tR.textContent == 'X' && tC.textContent == 'X' && tL.textContent == 'X') {
+        xWin();
+    } else if(tR.textContent == 'O' && tC.textContent == 'O' && tL.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check middle row win
 function checkMiddle() {
-    switch (mC.textContent && mL.textContent && mR.textContent) {
-        case 'X':
-            xWin();
-            console.log('won middle');
-            break;
-        case 'O':
-            oWin();
-            console.log('won middle');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (mR.textContent == 'X' && mC.textContent == 'X' && mL.textContent == 'X') {
+        xWin();
+    } else if(mR.textContent == 'O' && mC.textContent == 'O' && mL.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check Bottom row win
 function checkBottom() {
-    switch (bC.textContent && bL.textContent && bR.textContent) {
-        case 'X':
-            xWin();
-            console.log('won bottom');
-            break;
-        case 'O':
-            oWin();
-            console.log('won bottom');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (bR.textContent == 'X' && bC.textContent == 'X' && bL.textContent == 'X') {
+        xWin();
+    } else if(bR.textContent == 'O' && bC.textContent == 'O' && bL.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check left column win
 function checkLeft() {
-    switch (tL.textContent && mL.textContent && bL.textContent) {
-        case 'X':
-            xWin();
-            console.log('won left');
-            break;
-        case 'O':
-            oWin();
-            console.log('won left');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (tL.textContent == 'X' && mL.textContent == 'X' && bL.textContent == 'X') {
+        xWin();
+    } else if(tL.textContent == 'O' && mL.textContent == 'O' && bL.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check Center column
 function checkCenter() {
-    switch (tC.textContent && mC.textContent && bC.textContent) {
-        case 'X':
-            xWin();
-            console.log('won center');
-            break;
-        case 'O':
-            oWin();
-            console.log('won center');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (mC.textContent == 'X' && tC.textContent == 'X' && bC.textContent == 'X') {
+        xWin();
+    } else if(mC.textContent == 'O' && tC.textContent == 'O' && bC.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check right column win
 function checkRight() {
-    switch (tR.textContent && mR.textContent && bR.textContent) {
-        case 'X':
-            xWin();
-            console.log('won right');
-            break;
-        case 'O':
-            oWin();
-            console.log('won right');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (tR.textContent == 'X' && mR.textContent == 'X' && bR.textContent == 'X') {
+        xWin();
+    } else if(tR.textContent == 'O' && mR.textContent == 'O' && bR.textContent == 'O') {
+        oWin();
+    };
 };
 
 //check left diagonal win
 function checkLeftDi() {
-    switch (tL.textContent && mC.textContent && bR.textContent) {
-        case 'X':
-            xWin();
-            console.log('won ld');
-            break;
-        case 'O':
-            oWin();
-            console.log('won ld');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (bR.textContent == 'X' && mC.textContent == 'X' && tL.textContent == 'X') {
+        xWin();
+    } else if(bR.textContent == 'O' && mC.textContent == 'O' && tL.textContent == 'O') {
+        oWin();
+    };
 };
 
 //Check right diagonal win
 function checkRightDi() {
-    switch (tR.textContent && mC.textContent && bL.textContent) {
-        case 'X':
-            xWin();
-            console.log('won rd');
-            break;
-        case 'O':
-            oWin();
-            console.log('won rd');
-            break;
-        default:
-            result.textContent = '';
-    }
+    if (tR.textContent == 'X' && mC.textContent == 'X' && bL.textContent == 'X') {
+        xWin();
+    } else if(tR.textContent == 'O' && mC.textContent == 'O' && bL.textContent == 'O') {
+        oWin();
+    };
 };
 
 function Checkwin() {
